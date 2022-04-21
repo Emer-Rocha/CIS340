@@ -1,41 +1,32 @@
 import React from 'react';
-import { Text, Image, ScrollView } from 'react-native';
-const dog = { 
-  uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxl-I3EBMuFTNZIvHzu06HCAQKtDtUwZVuw&usqp=CAU',
-  width: 64,
-  height: 64
-};
+import { Text, View , SectionList} from 'react-native';
 
-export default  MyScrollViewApp = () => {
+export default  StatesApp = () => {
   
-  
-  return (
-   <ScrollView style ={{paddding: 40}}>
-     <Text style={{fontsize:80}}>
-       try to scroll down </Text> 
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Text style= {{fontsize: 80}}>try  to scroll down again if you like</Text> 
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Text style= {{fontsize: 80}}>React Native components</Text> 
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
-       <Image source={dog} />
+ return(
+
+  <View style ={{flex: 1, paddingTop: 22}}>
+    <SectionList
+      sections={[ {title: 'A', data: ['Alabama', 'Alaska','Arkansas','Arizona']},
+      {title: 'C', data: ['California','Colorado','Conneticut']},
+      {title: 'D', data: ['Delaware']},
+      {title: 'F', data: ['Florida']},
+      {title: 'G', data: ['Georgia']},
+      {title: 'H', data: ['Hawaii']},
+
+      ]} // You can continue with more sections
+      renderItem={({item}) => <Text style={{padding: 10, fontSize: 20, height: 44}}> {item} </Text> }
+      renderSectionHeader = {({section}) => <Text style={{paddingTop: 4 , paddingLeft: 10, padddingRight: 20, fontSize: 20, fontWeight: 'bold',
+      backgroundColor: '9FA8DA',
+      height: 44}} >{section.title} </Text>} // set your custom color
       
+      keyExtractor={(item,index) => index}
+    
+      />
 
 
-   </ScrollView> 
-  );
+  </View>
+  
+ ); // end of return
 }
 
